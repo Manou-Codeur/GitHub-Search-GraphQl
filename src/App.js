@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+
+import Search from "./components/search/search";
+import Repository from "./components/repository/repository";
+import Profile from "./components/profile/profile";
+import Organization from "./components/organization/organization";
+import Notfound from "./components/notFound/notFound";
+
+import "./App.css";
 
 function App() {
+  //state
+
+  //some functions
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Switch>
+        <Route path="/search" component={Search} />
+        <Route path="/repository" component={Repository} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/organization" component={Organization} />
+        <Route path="/notFound" component={Notfound} />
+        <Redirect from="/" exact to="/search" />
+        <Redirect to="/notFound" />
+      </Switch>
+    </React.Fragment>
   );
 }
 
