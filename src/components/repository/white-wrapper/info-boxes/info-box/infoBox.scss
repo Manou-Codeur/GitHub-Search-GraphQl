@@ -1,0 +1,30 @@
+.info-box {
+  width: 25em;
+  display: flex;
+  margin: 0 3em;
+
+  &__black-part {
+    padding: 0.7em 0;
+    width: 40%;
+    background-color: #2b3137;
+    color: white;
+    text-align: center;
+  }
+
+  &__black-part--large {
+    padding-top: 0.7em;
+    width: 40%;
+    height: 11em;
+    background-color: #2b3137;
+    color: white;
+    text-align: center;
+  }
+
+  &__white-part {
+    text-align: center;
+    border: 2px solid #2b3137;
+    padding: 0.7em 0;
+    width: 60%;
+    background-color: white;
+  }
+}

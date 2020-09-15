@@ -1,0 +1,55 @@
+.white-wrapper {
+  background-color: white;
+  width: 70%;
+  height: 35rem;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5em;
+
+  &__repo-data {
+    padding: 1em 0;
+    display: flex;
+    justify-content: center;
+    height: 75%;
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 30em;
+      height: 1px;
+      background-color: gray;
+      position: absolute;
+      bottom: -8%;
+    }
+  }
+
+  &__left-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__right-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  button {
+    width: 7em;
+    border-radius: 5px;
+    border: 0;
+    color: white;
+    background: #2b3137;
+    margin: 3em auto 0 auto;
+    text-align: center;
+    padding: 0.5em 0;
+    font-size: 1.3em;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #2b3137cb;
+    }
+  }
+}
