@@ -17,8 +17,8 @@ function App() {
     <React.Fragment>
       <Switch>
         <Route path="/search" component={Search} />
-        <Route path="/repository" component={Repository} />
-        <Route path="/profile" component={Profile} />
+        <Route path="/repository/:id" component={Repository} />
+        <Route path="/profile/:id" component={Profile} />
         <Route path="/notFound" component={Notfound} />
         <Redirect from="/" exact to="/search" />
         <Redirect to="/notFound" />

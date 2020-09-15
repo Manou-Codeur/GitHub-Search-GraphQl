@@ -1,9 +1,17 @@
 import React from "react";
 
+import User from "./user/user";
+import ReposWrapper from "./repos-wrapper/reposWrapper";
+
 import "./profile.scss";
 
 const Profile = () => {
-  return <h1>Profile</h1>;
+  return (
+    <div className="profile">
+      <User />
+      <ReposWrapper />
+    </div>
+  );
 };
 
 export default Profile;
