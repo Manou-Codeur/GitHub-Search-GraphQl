@@ -2,10 +2,11 @@
   background: url("../../assets/img/simple-codelines.svg"), #2b3137;
   background-size: cover;
   background-position: center;
-  width: 100vw;
+  background-attachment: fixed;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  padding: 2rem 0;
 }

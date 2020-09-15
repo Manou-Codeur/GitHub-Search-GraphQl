@@ -4,4 +4,45 @@
   background-color: #2b3137;
   margin: 0.5rem 0;
   border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #2b3137e7;
+  }
+
+  &__left-part {
+    height: 3em;
+    img {
+      height: 1.3em;
+      margin: 0 0.3em;
+    }
+  }
+
+  &__right-part {
+    height: 3.5em;
+
+    h3 {
+      font-size: 1.2em;
+      color: white;
+      font-weight: 300;
+    }
+
+    span {
+      color: gray;
+    }
+
+    span:nth-of-type(1) {
+      img {
+        height: 1.1em;
+        transform: translateY(2px);
+      }
+    }
+
+    span:nth-of-type(2) {
+      margin: 0 1em;
+    }
+  }
 }

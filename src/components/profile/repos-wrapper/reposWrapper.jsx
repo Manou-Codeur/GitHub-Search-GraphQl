@@ -10,6 +10,9 @@ const ReposWrapper = () => {
       <Repository />
       <Repository />
       <Repository />
+      <Repository />
+
+      <button>Load More</button>
     </div>
   );
 };
