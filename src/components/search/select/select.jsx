@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Select({ toggleFeild }) {
+const Select = ({ toggleFeild }) => {
   const classes = useStyles();
   const [field, setField] = useState("User");
 
@@ -67,4 +67,6 @@ export default function Select({ toggleFeild }) {
       </FormControl>
     </div>
   );
-}
+};
+
+export default Select;

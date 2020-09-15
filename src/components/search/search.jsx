@@ -23,10 +23,11 @@ const Search = () => {
       <div className="search__form-containner">
         <Select toggleFeild={toggleFeild} />
 
+        {/* logic for displaying one input or two */}
         {fieldSelected === "User" ? (
           <Input />
         ) : (
-          <div className="inputs-containner">
+          <div className="search__inputs-containner">
             <Input repo={true} second={true} />
             <Input repo={true} />
           </div>
