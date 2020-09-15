@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -28,12 +28,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Select() {
+export default function Select({ toggleFeild }) {
   const classes = useStyles();
-  const [field, setField] = React.useState("");
+  const [field, setField] = useState("User");
 
-  const handleChange = event => {
-    setField(event.target.value);
+  const handleChange = ({ target }) => {
+    setField(target.value);
+    toggleFeild(target.value);
   };
 
   return (
@@ -56,10 +57,10 @@ export default function Select() {
           disableUnderline={true}
           color="primary"
         >
-          <MenuItem className={classes.MenuItem} value={10}>
+          <MenuItem className={classes.MenuItem} value="Repository">
             Repository
           </MenuItem>
-          <MenuItem className={classes.MenuItem} value={20}>
+          <MenuItem className={classes.MenuItem} value="User">
             User
           </MenuItem>
         </SelectUI>
