@@ -23,4 +23,23 @@
       background-color: #2b3137ad;
     }
   }
+
+  @media only screen and (max-width: 1170px) {
+    font-size: 15px;
+    width: 70%;
+  }
+
+  @media only screen and (max-width: 760px) {
+    font-size: 13px;
+    width: 80%;
+  }
+
+  @media only screen and (max-width: 555px) {
+    font-size: 12px;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 420px) {
+    font-size: 10px;
+  }
 }
