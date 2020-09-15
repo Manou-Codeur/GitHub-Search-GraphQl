@@ -22,6 +22,7 @@ const Search = () => {
 
       <div className="search__form-containner">
         <Select toggleFeild={toggleFeild} />
+
         {fieldSelected === "User" ? (
           <Input />
         ) : (

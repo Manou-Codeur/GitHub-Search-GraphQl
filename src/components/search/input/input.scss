@@ -4,15 +4,45 @@
 
   input {
     border: 0;
-    padding: 0.2rem 0;
+    padding: 0.2em 0;
     background: transparent;
     outline: none;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     color: white;
-    width: 500px;
+    width: 31.25em;
   }
 
   img {
-    height: 1.7rem;
+    height: 1.7em;
+  }
+
+  @media only screen and (max-width: 830px) {
+    & {
+      margin-bottom: 1rem;
+
+      input {
+        font-size: 14px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 490px) {
+    & {
+      margin-bottom: 1rem;
+
+      input {
+        font-size: 11px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 388px) {
+    & {
+      margin-bottom: 1rem;
+
+      input {
+        font-size: 8px;
+      }
+    }
   }
 }

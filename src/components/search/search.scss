@@ -31,4 +31,27 @@
     justify-content: center;
     margin-bottom: 4rem;
   }
+
+  @media only screen and (max-width: 830px) {
+    &__title {
+      font-size: 13px;
+    }
+
+    &__form-containner {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+  }
+
+  @media only screen and (max-width: 490px) {
+    &__title {
+      font-size: 10px;
+    }
+  }
+
+  @media only screen and (max-width: 388px) {
+    &__title {
+      font-size: 7px;
+    }
+  }
 }
