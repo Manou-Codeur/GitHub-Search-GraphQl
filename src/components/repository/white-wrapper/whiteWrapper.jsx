@@ -8,20 +8,12 @@ const WhiteWrapper = () => {
   return (
     <div className="white-wrapper">
       <div className="white-wrapper__repo-data">
-        <div className="white-wrapper__left-part">
-          <InfoBoxes large={false} />
-          <InfoBoxes large={false} />
-          <InfoBoxes large={false} />
-          <InfoBoxes large={false} />
-          <InfoBoxes large={false} />
-          <InfoBoxes large={false} />
-        </div>
+        <InfoBoxes large={false} pos="left" />
 
-        <div className="white-wrapper__right-part">
-          <InfoBoxes large={true} />
-          <InfoBoxes large={true} />
-        </div>
+        <InfoBoxes large={true} pos="right" />
       </div>
+
+      <div className="hr"></div>
 
       <button>Star</button>
     </div>

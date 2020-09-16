@@ -15,4 +15,22 @@
     font-weight: 400;
     margin-bottom: 1em;
   }
+
+  @media only screen and (max-height: 620px) {
+    &__header {
+      margin-top: 1.5em;
+    }
+  }
+
+  @media only screen and (max-width: 870px) {
+    font-size: 14px;
+  }
+
+  @media only screen and (max-width: 685px) {
+    font-size: 12px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    font-size: 10px;
+  }
 }

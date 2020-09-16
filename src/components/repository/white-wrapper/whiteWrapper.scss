@@ -1,7 +1,8 @@
 .white-wrapper {
   background-color: white;
   width: 70%;
-  height: 35rem;
+  max-width: 1800px;
+  height: 35em;
   border-radius: 22px;
   display: flex;
   flex-direction: column;
@@ -12,28 +13,13 @@
     display: flex;
     justify-content: center;
     height: 75%;
-    position: relative;
-
-    &::after {
-      content: "";
-      width: 30em;
-      height: 1px;
-      background-color: gray;
-      position: absolute;
-      bottom: -8%;
-    }
   }
 
-  &__left-part {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  &__right-part {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  .hr {
+    height: 1px;
+    width: 400px;
+    background-color: black;
+    margin: 1.5em auto 0 auto;
   }
 
   button {
@@ -42,7 +28,7 @@
     border: 0;
     color: white;
     background: #2b3137;
-    margin: 3em auto 0 auto;
+    margin: 2em auto 0 auto;
     text-align: center;
     padding: 0.5em 0;
     font-size: 1.3em;
@@ -50,6 +36,37 @@
 
     &:hover {
       background-color: #2b3137cb;
+    }
+  }
+
+  @media only screen and (max-width: 870px) {
+    font-size: 14px;
+    width: 90%;
+  }
+
+  @media only screen and (max-width: 685px) {
+    font-size: 12px;
+    width: 100%;
+    &__repo-data {
+      justify-content: space-between;
+    }
+  }
+
+  @media only screen and (max-width: 550px) {
+    font-size: 10px;
+    height: 53em;
+
+    &__repo-data {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hr {
+      display: none;
+    }
+
+    button {
+      margin: 6em auto 0 auto;
     }
   }
 }

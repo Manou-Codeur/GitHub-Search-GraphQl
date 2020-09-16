@@ -1,0 +1,16 @@
+.info-boxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+  margin: 0 1em;
+
+  @media only screen and (max-width: 685px) {
+    width: 45%;
+  }
+
+  @media only screen and (max-width: 550px) {
+    width: 80%;
+  }
+}
