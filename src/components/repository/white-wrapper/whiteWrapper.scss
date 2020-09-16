@@ -9,6 +9,15 @@
   display: flex;
   flex-direction: column;
   padding-top: 1.5em;
+  position: relative;
+
+  img {
+    height: 5em;
+    top: -6%;
+    left: -3%;
+    transform: rotate(-25deg);
+    position: absolute;
+  }
 
   &__repo-data {
     padding: 1em 0;
