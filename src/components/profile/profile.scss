@@ -1,12 +1,8 @@
+@import "../../assets/sassMixins.scss";
+
 .profile {
-  background: url("../../assets/img/simple-codelines.svg"), #2b3137;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  width: 100%;
+  @include template;
+  @include flex-column-center;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 2rem 0;
 }

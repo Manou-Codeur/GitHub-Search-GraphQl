@@ -1,13 +1,9 @@
+@import "../../assets/sassMixins.scss";
+
 .Repository {
-  background: url("../../assets/img/simple-codelines.svg"), #2b3137;
-  background-size: cover;
-  background-position: center;
-  width: 100vw;
+  @include template;
+  @include flex-column-center;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   &__header {
     font-size: 3em;

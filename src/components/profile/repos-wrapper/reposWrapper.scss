@@ -1,3 +1,5 @@
+@import "../../../assets/sassMixins.scss";
+
 .repo-wrapper {
   width: 50%;
   background-color: white;
@@ -10,7 +12,7 @@
 
   button {
     padding: 1.2em 3em;
-    background-color: #2b3137;
+    background-color: $black-gitHub;
     border-radius: 11px;
     border: 0;
     color: white;

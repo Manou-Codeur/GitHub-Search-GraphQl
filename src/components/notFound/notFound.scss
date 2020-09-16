@@ -3,6 +3,7 @@
 .not-found {
   @include template;
   @include flex-column-center;
+  height: 100vh;
 
   h1 {
     color: white;

@@ -1,9 +1,10 @@
+$black-gitHub: #2b3137;
+
 @mixin template {
-  background: url("./img/simple-codelines.svg"), #2b3137;
+  background: url("./img/simple-codelines.svg"), $black-gitHub;
   background-size: cover;
   background-position: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
 }
 
 @mixin flex-column-center {

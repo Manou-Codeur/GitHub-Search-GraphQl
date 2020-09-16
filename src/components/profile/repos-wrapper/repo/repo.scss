@@ -1,7 +1,9 @@
+@import "../../../../assets/sassMixins.scss";
+
 .repository {
   width: 90%;
   height: 7rem;
-  background-color: #2b3137;
+  background-color: $black-gitHub;
   margin: 0.5rem 0;
   border-radius: 20px;
   display: flex;
@@ -15,6 +17,7 @@
 
   &__left-part {
     height: 3em;
+
     img {
       height: 1.3em;
       margin: 0 0.3em;
