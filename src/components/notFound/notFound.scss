@@ -1,14 +1,8 @@
+@import "../../assets/sassMixins";
+
 .not-found {
-  background: url("../../assets/img/simple-codelines.svg"), #2b3137;
-  background-size: cover;
-  background-position: center;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
+  @include template;
+  @include flex-column-center;
 
   h1 {
     color: white;
@@ -18,13 +12,13 @@
   }
 
   button {
-    padding: 1rem 2em;
+    padding: 1em 2em;
     background-color: transparent;
-    border: 2px solid white;
+    border: 0.125em solid white;
     color: white;
     border-radius: 5px;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1em;
     cursor: pointer;
     outline: none;
     text-decoration: none;

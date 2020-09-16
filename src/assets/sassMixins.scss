@@ -1,0 +1,14 @@
+@mixin template {
+  background: url("./img/simple-codelines.svg"), #2b3137;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
