@@ -9,10 +9,6 @@ import Notfound from "./components/notFound/notFound";
 import "./App.css";
 
 function App() {
-  //state
-
-  //some functions
-
   return (
     <React.Fragment>
       <Switch>
