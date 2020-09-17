@@ -24,6 +24,9 @@ const Search = ({ history, callServer }) => {
           ownerName: fieldContext.ownerName,
         });
         history.push(`/repository/@${fieldContext.repoName}`);
+        //init the owner name and repo name field in the context
+        fieldContext.updateOwnerName({ target: { value: "" } });
+        fieldContext.updateRepoName({ target: { value: "" } });
       }
     }
   };

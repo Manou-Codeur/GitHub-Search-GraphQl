@@ -1,4 +1,5 @@
 import React from "react";
+import RepositoryContext from "../../contexts/repositoryContext";
 
 import WhiteWrapper from "./white-wrapper/whiteWrapper";
 
@@ -7,13 +8,15 @@ import "./repository.scss";
 const Repository = ({ data, error }) => {
   if (error) return <h1>Error!</h1>;
   if (!data) return <h1>Loading...</h1>;
-  console.log(data);
+  const { repository } = data;
 
   return (
-    <div className="Repository">
-      <h1 className="Repository__header">Repository name</h1>
-      <WhiteWrapper />
-    </div>
+    <RepositoryContext.Provider value={repository}>
+      <div className="Repository">
+        <h1 className="Repository__header">{repository.name}</h1>
+        <WhiteWrapper />
+      </div>
+    </RepositoryContext.Provider>
   );
 };
 
