@@ -7,7 +7,7 @@ import { InputFieldContext } from "../../../../contexts/inputField";
 
 const Input = ({ field, handleSubmitWithClick }) => {
   //in here rather than writing the input logic like this, i'd to use the state on the context
-  const myContext = useContext(InputFieldContext);
+  const fieldContext = useContext(InputFieldContext);
 
   const generatePlaceholder = field => {
     if (field === "repoName") {
@@ -25,12 +25,14 @@ const Input = ({ field, handleSubmitWithClick }) => {
       style={field === "repo-name" ? { marginBottom: "1rem" } : null}
     >
       <input
-        value={myContext[field]}
-        onChange={myContext[`update${field[0].toUpperCase() + field.slice(1)}`]}
+        value={fieldContext[field]}
+        onChange={
+          fieldContext[`update${field[0].toUpperCase() + field.slice(1)}`]
+        }
         type="text"
         placeholder={generatePlaceholder(field)}
       />
-      {field === "username" && (
+      {field === "userName" && (
         <img
           onClick={handleSubmitWithClick}
           src={searchIcon}

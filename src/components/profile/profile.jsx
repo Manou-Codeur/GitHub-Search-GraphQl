@@ -5,11 +5,15 @@ import ReposWrapper from "./repos-wrapper/reposWrapper";
 
 import "./profile.scss";
 
-const Profile = () => {
+const Profile = ({ data, error }) => {
+  if (error) return <h1>Error!</h1>;
+  if (!data) return <h1>Loading...</h1>;
+  const { user } = data;
+
   return (
     <div className="profile">
-      <User />
-      <ReposWrapper />
+      <User data={user} />
+      <ReposWrapper repos={user.repositories.edges} />
     </div>
   );
 };

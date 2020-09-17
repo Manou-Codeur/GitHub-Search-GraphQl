@@ -3,6 +3,7 @@
 .profile {
   @include template;
   @include flex-column-center;
+  background-attachment: fixed;
   min-height: 100vh;
   padding: 2rem 0;
 }

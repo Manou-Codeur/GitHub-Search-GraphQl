@@ -4,13 +4,12 @@ import Repository from "./repo/repo";
 
 import "./reposWrapper.scss";
 
-const ReposWrapper = () => {
+const ReposWrapper = ({ repos }) => {
   return (
     <div className="repo-wrapper">
-      <Repository />
-      <Repository />
-      <Repository />
-      <Repository />
+      {repos.map(repo => (
+        <Repository key={repo.node.id} data={repo.node} />
+      ))}
 
       <button>Load More</button>
     </div>
