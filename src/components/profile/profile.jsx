@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_USER_DATA } from "../../GraphQl/GraphQl-Queries";
+import Produce from "immer";
 
 import User from "./user/user";
 import ReposWrapper from "./repos-wrapper/reposWrapper";
@@ -13,7 +14,9 @@ const Profile = ({
   },
   history,
 }) => {
-  const { data, loading, error } = useQuery(GET_USER_DATA, {
+  const [waitRefetch, setWaitRefetch] = useState(false);
+
+  const { data, loading, error, fetchMore } = useQuery(GET_USER_DATA, {
     variables: { login: username.slice(1) },
   });
 
@@ -21,9 +24,28 @@ const Profile = ({
     history.push(`/repository/${repoName}/@${owner}`);
   };
 
+  const fetchMoreData = () => {
+    setWaitRefetch(true);
+    fetchMore({
+      variables: {
+        login: username.slice(1),
+        cursor: data.user.repositories.pageInfo.endCursor,
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        return Produce(prev, newestOne => {
+          newestOne.user.repositories.edges = [
+            ...newestOne.user.repositories.edges,
+            ...fetchMoreResult.user.repositories.edges,
+          ];
+          newestOne.user.repositories.pageInfo =
+            fetchMoreResult.user.repositories.pageInfo;
+        });
+      },
+    }).then(res => setWaitRefetch(false));
+  };
+
   if (loading) return <h1>Loading...</h1>;
   if (error) return <h1>Error!</h1>;
-  console.log(data.rateLimit);
 
   const { user } = data;
 
@@ -31,8 +53,11 @@ const Profile = ({
     <div className="profile">
       <User data={user} />
       <ReposWrapper
+        canFetchMore={user.repositories.pageInfo.hasNextPage}
+        fetchMoreData={fetchMoreData}
         repos={user.repositories.edges}
         navigateToRepository={navigateToRepository}
+        waitRefetch={waitRefetch}
       />
     </div>
   );

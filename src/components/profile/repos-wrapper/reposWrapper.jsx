@@ -4,7 +4,13 @@ import Repository from "./repo/repo";
 
 import "./reposWrapper.scss";
 
-const ReposWrapper = ({ repos, navigateToRepository }) => {
+const ReposWrapper = ({
+  repos,
+  navigateToRepository,
+  fetchMoreData,
+  canFetchMore,
+  waitRefetch,
+}) => {
   return (
     <div className="repo-wrapper">
       {repos.map(repo => (
@@ -15,7 +21,8 @@ const ReposWrapper = ({ repos, navigateToRepository }) => {
         />
       ))}
 
-      <button>Load More</button>
+      {canFetchMore && <button onClick={fetchMoreData}>Load More</button>}
+      {waitRefetch && <h3>Loading...</h3>}
     </div>
   );
 };
