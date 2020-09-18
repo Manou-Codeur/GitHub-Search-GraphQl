@@ -13,3 +13,17 @@ export const ADD_STAR = gql`
     }
   }
 `;
+
+export const REMOVE_STAR = gql`
+  mutation($input: RemoveStarInput!) {
+    removeStar(input: $input) {
+      starrable {
+        id
+        viewerHasStarred
+        stargazers {
+          totalCount
+        }
+      }
+    }
+  }
+`;

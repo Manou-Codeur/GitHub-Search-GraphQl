@@ -5,7 +5,7 @@ import InfoBoxes from "./info-boxes/infoBoxes";
 import "./whiteWrapper.scss";
 import gitHubIcon from "../../../assets/img/Octocat.png";
 
-const WhiteWrapper = ({ addStarToRepo, viewerStared }) => {
+const WhiteWrapper = ({ star_unStar, viewerStared }) => {
   return (
     <div className="white-wrapper">
       <img src={gitHubIcon} alt="github icon" />
@@ -17,8 +17,8 @@ const WhiteWrapper = ({ addStarToRepo, viewerStared }) => {
 
       <div className="hr"></div>
 
-      <button type="button" disabled={viewerStared} onClick={addStarToRepo}>
-        Star
+      <button type="button" onClick={star_unStar}>
+        {viewerStared ? "Unstar" : "Star"}
       </button>
     </div>
   );
