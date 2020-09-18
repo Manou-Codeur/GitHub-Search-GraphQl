@@ -17,7 +17,11 @@ const Repository = ({
   });
 
   if (loading) return <h1>Loading...</h1>;
-  if (error) return <h1>Error!</h1>;
+  if (error) {
+    console.log({ ...error });
+    return <h1>Error!</h1>;
+  }
+  console.log(data);
 
   const { repository } = data;
 

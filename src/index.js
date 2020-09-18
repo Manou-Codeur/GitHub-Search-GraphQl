@@ -16,7 +16,7 @@ import "./index.css";
 const link = createHttpLink({
   uri: "https://api.github.com/graphql",
   headers: {
-    Authorization: `bearer 444da92d04c47d70e5b2679b806c7fe9ac6c7fd3`,
+    Authorization: `bearer a264db985aeb383a40dc5700eb99c25c64f1f712`,
   },
 });
 

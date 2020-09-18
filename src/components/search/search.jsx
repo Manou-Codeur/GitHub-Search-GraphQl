@@ -14,12 +14,12 @@ const Search = ({ history }) => {
   const handleSubmit = e => {
     if (e.key === "Enter" || e.type === "click") {
       if (fieldSelected === "User") {
-        history.push(`/profile/@${fieldContext.userName}`);
+        history.push(`/profile/@${fieldContext.userName.trim()}`);
         //init the username field in the context
         fieldContext.updateUserName({ target: { value: "" } });
       } else {
         history.push(
-          `/repository/${fieldContext.repoName}/@${fieldContext.ownerName} `
+          `/repository/${fieldContext.repoName.trim()}/@${fieldContext.ownerName.trim()}`
         );
         //init the owner name and repo name field in the context
         fieldContext.updateOwnerName({ target: { value: "" } });

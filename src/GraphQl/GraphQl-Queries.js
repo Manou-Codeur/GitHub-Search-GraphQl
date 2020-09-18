@@ -2,6 +2,12 @@ import { gql } from "@apollo/client";
 
 export const GET_USER_DATA = gql`
   query getUserData($login: String!) {
+    rateLimit {
+      limit
+      cost
+      remaining
+      resetAt
+    }
     user(login: $login) {
       login
       avatarUrl
@@ -45,6 +51,12 @@ export const GET_USER_DATA = gql`
 
 export const GET_REPOSITORY_DATA = gql`
   query getRepositoryData($repoName: String!, $ownerName: String!) {
+    rateLimit {
+      limit
+      cost
+      remaining
+      resetAt
+    }
     repository(name: $repoName, owner: $ownerName) {
       name
       owner {
