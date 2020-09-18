@@ -45,6 +45,11 @@
     font-size: 1.3em;
     cursor: pointer;
 
+    &:disabled {
+      background-color: #2b3137cb;
+      cursor: not-allowed;
+    }
+
     &:hover {
       background-color: #2b3137cb;
     }

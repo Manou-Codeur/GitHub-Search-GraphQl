@@ -50,10 +50,12 @@ export const GET_USER_DATA = gql`
 export const GET_REPOSITORY_DATA = gql`
   query getRepositoryData($repoName: String!, $ownerName: String!) {
     repository(name: $repoName, owner: $ownerName) {
+      id
       name
       owner {
         login
       }
+      viewerHasStarred
       stargazers {
         totalCount
       }
