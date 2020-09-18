@@ -19,7 +19,9 @@ const User = ({ data }) => {
         </p>
         <p>
           <strong>Biography:</strong>{" "}
-          {data.bio ? data.bio : "This user hasn't written any biography!"}
+          {data.bio && data.bio.trim() !== ""
+            ? data.bio
+            : "This user hasn't written any biography!"}
         </p>
         <p>
           <strong>Followers:</strong> {data.followers.totalCount}
