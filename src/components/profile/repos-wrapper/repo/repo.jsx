@@ -5,9 +5,12 @@ import "./repo.scss";
 import bookIcon from "../../../../assets/img/bookmarks-outline.png";
 import starIcon from "../../../../assets/img/star-outline.png";
 
-const Repository = ({ data }) => {
+const Repository = ({ data, navigateToRepository }) => {
   return (
-    <div className="repository">
+    <div
+      className="repository"
+      onClick={() => navigateToRepository(data.name, data.owner.login)}
+    >
       <div className="repository__left-part">
         <img src={bookIcon} alt="book icon" />
       </div>
