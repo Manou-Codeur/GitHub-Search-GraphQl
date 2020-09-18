@@ -21,8 +21,11 @@ const ReposWrapper = ({
         />
       ))}
 
-      {canFetchMore && <button onClick={fetchMoreData}>Load More</button>}
-      {waitRefetch && <h3>Loading...</h3>}
+      {canFetchMore && (
+        <button onClick={fetchMoreData} disabled={waitRefetch}>
+          {waitRefetch ? "Loading..." : "Load More"}
+        </button>
+      )}
     </div>
   );
 };

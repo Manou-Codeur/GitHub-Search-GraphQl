@@ -5,6 +5,7 @@ import Produce from "immer";
 
 import User from "./user/user";
 import ReposWrapper from "./repos-wrapper/reposWrapper";
+import Spinner from "./../load-spinner/loadSpinner";
 
 import "./profile.scss";
 
@@ -44,7 +45,7 @@ const Profile = ({
     }).then(res => setWaitRefetch(false));
   };
 
-  if (loading) return <h1>Loading...</h1>;
+  if (loading) return <Spinner />;
   if (error) return <h1>Error!</h1>;
 
   const { user } = data;

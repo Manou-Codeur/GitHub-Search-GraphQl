@@ -6,6 +6,7 @@ import { ADD_STAR, REMOVE_STAR } from "../../GraphQl/GraphQl-Mutations";
 import Produce from "immer";
 
 import WhiteWrapper from "./white-wrapper/whiteWrapper";
+import Spinner from "../load-spinner/loadSpinner";
 
 import "./repository.scss";
 
@@ -81,7 +82,7 @@ const Repository = ({
     }
   };
 
-  if (loading) return <h1>Loading...</h1>;
+  if (loading) return <Spinner />;
   if (error) return <h1>Error!</h1>;
 
   const { repository } = data;
