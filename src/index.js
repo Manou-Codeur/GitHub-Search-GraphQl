@@ -16,7 +16,9 @@ import "./index.css";
 
 const errorLink = onError(({ networkError }) => {
   if (networkError) {
-    alert("This is a network error, please reload the page!");
+    if (networkError.statusCode === 429)
+      alert("There is too many requests, please try again later!");
+    else alert("This is a network error, please reload the page!");
   }
 });
 const httpLink = createHttpLink({

@@ -90,7 +90,7 @@ const Repository = ({
       error.graphQLErrors[0].type === "NOT_FOUND"
     ) {
       return <Redirect to="/notFound/Repository" />;
-    } else return <h2>{error.message}</h2>;
+    } else return <h2>Failed to fetch!</h2>;
   }
 
   const { repository } = data;

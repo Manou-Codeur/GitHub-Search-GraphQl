@@ -53,7 +53,7 @@ const Profile = ({
       error.graphQLErrors[0].type === "NOT_FOUND"
     ) {
       return <Redirect to="/notFound/User" />;
-    } else return <h2>{error.message}</h2>;
+    } else return <h2>Failed to fetch!</h2>;
   }
 
   const { user } = data;
