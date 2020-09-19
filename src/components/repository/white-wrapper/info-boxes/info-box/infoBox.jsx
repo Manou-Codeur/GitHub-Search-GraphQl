@@ -29,4 +29,10 @@ const InfoBox = ({ large, fieldName, data }) => {
   );
 };
 
-export default InfoBox;
+const compare = (prevProps, currProps) => {
+  if (prevProps.fieldName === "Stars" && prevProps.data !== currProps.data)
+    return false;
+  return true;
+};
+
+export default React.memo(InfoBox, compare);
