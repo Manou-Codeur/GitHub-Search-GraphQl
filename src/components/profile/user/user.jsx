@@ -31,4 +31,8 @@ const User = ({ data }) => {
   );
 };
 
-export default User;
+const compare = (prevProps, currProps) => {
+  return prevProps.followers === currProps.followers ? true : false;
+};
+
+export default React.memo(User, compare);

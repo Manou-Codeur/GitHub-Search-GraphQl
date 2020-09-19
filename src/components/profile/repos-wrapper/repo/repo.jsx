@@ -30,4 +30,4 @@ const Repository = ({ data, navigateToRepository }) => {
   );
 };
 
-export default Repository;
+export default React.memo(Repository);

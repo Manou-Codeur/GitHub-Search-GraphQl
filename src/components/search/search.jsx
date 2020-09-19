@@ -4,8 +4,8 @@ import Select from "./select/select";
 import InputsWrapper from "./inputs-wrapper/inputsWrapper";
 import { InputFieldContext } from "../../contexts/inputField";
 
-import "./search.scss";
 import catGithub from "../../assets/img/Octocat.png";
+import "./search.scss";
 
 const Search = ({ history }) => {
   const [fieldSelected, setFieldSelected] = useState("User");

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_USER_DATA } from "../../GraphQl/GraphQl-Queries";
 import { Redirect } from "react-router-dom";
@@ -22,9 +22,12 @@ const Profile = ({
     variables: { login: username.slice(1) },
   });
 
-  const navigateToRepository = (repoName, owner) => {
-    history.push(`/repository/${repoName}/@${owner}`);
-  };
+  const navigateToRepository = useCallback(
+    (repoName, owner) => {
+      history.push(`/repository/${repoName}/@${owner}`);
+    },
+    [history]
+  );
 
   const fetchMoreData = () => {
     setWaitRefetch(true);
@@ -60,7 +63,16 @@ const Profile = ({
 
   return (
     <div className="profile">
-      <User data={user} />
+      <User
+        data={{
+          avatarUrl: user.avatarUrl,
+          login: user.login,
+          bio: user.bio,
+          followers: {
+            totalCount: user.followers.totalCount,
+          },
+        }}
+      />
 
       <ReposWrapper
         canFetchMore={user.repositories.pageInfo.hasNextPage}
