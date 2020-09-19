@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_USER_DATA } from "../../GraphQl/GraphQl-Queries";
+import { Redirect } from "react-router-dom";
 import Produce from "immer";
 
 import User from "./user/user";
@@ -46,13 +47,21 @@ const Profile = ({
   };
 
   if (loading) return <Spinner />;
-  if (error) return <h1>Error!</h1>;
+  if (error) {
+    if (
+      error.graphQLErrors.length > 0 &&
+      error.graphQLErrors[0].type === "NOT_FOUND"
+    ) {
+      return <Redirect to="/notFound/User" />;
+    } else return <h2>{error.message}</h2>;
+  }
 
   const { user } = data;
 
   return (
     <div className="profile">
       <User data={user} />
+
       <ReposWrapper
         canFetchMore={user.repositories.pageInfo.hasNextPage}
         fetchMoreData={fetchMoreData}

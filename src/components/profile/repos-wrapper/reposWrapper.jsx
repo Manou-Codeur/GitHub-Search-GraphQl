@@ -13,6 +13,8 @@ const ReposWrapper = ({
 }) => {
   return (
     <div className="repo-wrapper">
+      {repos.length === 0 ? <h1>There is no repositories!</h1> : null}
+
       {repos.map(repo => (
         <Repository
           key={repo.node.id}

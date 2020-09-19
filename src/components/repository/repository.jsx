@@ -3,6 +3,7 @@ import RepositoryContext from "../../contexts/repositoryContext";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_REPOSITORY_DATA } from "../../GraphQl/GraphQl-Queries";
 import { ADD_STAR, REMOVE_STAR } from "../../GraphQl/GraphQl-Mutations";
+import { Redirect } from "react-router-dom";
 import Produce from "immer";
 
 import WhiteWrapper from "./white-wrapper/whiteWrapper";
@@ -83,7 +84,14 @@ const Repository = ({
   };
 
   if (loading) return <Spinner />;
-  if (error) return <h1>Error!</h1>;
+  if (error) {
+    if (
+      error.graphQLErrors.length > 0 &&
+      error.graphQLErrors[0].type === "NOT_FOUND"
+    ) {
+      return <Redirect to="/notFound/Repository" />;
+    } else return <h2>{error.message}</h2>;
+  }
 
   const { repository } = data;
   return (

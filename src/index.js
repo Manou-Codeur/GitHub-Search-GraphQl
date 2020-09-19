@@ -6,19 +6,26 @@ import {
   createHttpLink,
   InMemoryCache,
   ApolloProvider,
+  ApolloLink,
 } from "@apollo/client";
-
+import { onError } from "@apollo/client/link/error";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import InputProvider from "./contexts/inputField";
 import "./index.css";
 
-const link = createHttpLink({
+const errorLink = onError(({ networkError }) => {
+  if (networkError) {
+    alert("This is a network error, please reload the page!");
+  }
+});
+const httpLink = createHttpLink({
   uri: "https://api.github.com/graphql",
   headers: {
-    Authorization: `bearer a264db985aeb383a40dc5700eb99c25c64f1f712`,
+    Authorization: `bearer ${process.env.REACT_APP_TOKEN}`,
   },
 });
+const link = ApolloLink.concat(errorLink, httpLink);
 
 const client = new ApolloClient({
   link,
