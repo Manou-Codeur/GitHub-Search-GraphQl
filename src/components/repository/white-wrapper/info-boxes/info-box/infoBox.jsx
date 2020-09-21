@@ -22,9 +22,11 @@ const InfoBox = ({ large, fieldName, data }) => {
           large ? "info-box__black-part--large" : "info-box__black-part"
         }
       >
-        {fieldName}
+        <span>{fieldName}</span>
       </div>
-      <div className="info-box__white-part">{newData}</div>
+      <div className="info-box__white-part">
+        <span className={large ? null : "span"}>{newData}</span>
+      </div>
     </div>
   );
 };

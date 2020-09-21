@@ -21,11 +21,6 @@
     outline: none;
     transition: all 0.2s;
 
-    &:disabled {
-      background-color: #2b3137ad;
-      cursor: wait;
-    }
-
     &:hover {
       background-color: #2b3137ad;
     }

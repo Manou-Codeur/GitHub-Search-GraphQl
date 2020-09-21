@@ -10,11 +10,19 @@
     color: white;
     font-weight: 400;
     margin-bottom: 1em;
+    text-align: center;
+    padding: 0 1em;
   }
 
   @media only screen and (max-height: 620px) {
     &__header {
       margin-top: 1.5em;
+    }
+  }
+
+  @media only screen and (max-height: 580px) {
+    &__header {
+      margin-top: 4em;
     }
   }
 
@@ -28,5 +36,11 @@
 
   @media only screen and (max-width: 550px) {
     font-size: 10px;
+  }
+
+  @media only screen and (max-width: 380px) {
+    &__header {
+      font-size: 2.3em;
+    }
   }
 }

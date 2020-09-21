@@ -11,6 +11,11 @@
     background-color: $black-gitHub;
     color: white;
     text-align: center;
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
   }
 
   &__black-part--large {
@@ -28,5 +33,10 @@
     padding: 0.7em 0;
     width: 60%;
     background-color: white;
+
+    .span {
+      display: inline-block;
+      vertical-align: middle;
+    }
   }
 }

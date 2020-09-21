@@ -98,6 +98,7 @@ const Repository = ({
     <RepositoryContext.Provider value={repository}>
       <div className="Repository">
         <h1 className="Repository__header">{repository.name}</h1>
+
         <WhiteWrapper
           star_unStar={star_unStar}
           viewerStared={repository.viewerHasStarred}
