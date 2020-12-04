@@ -1,6 +1,13 @@
 import React, { createContext, useState } from "react";
 
-export const InputFieldContext = createContext();
+export const InputFieldContext = createContext({
+  userName: "",
+  repoName: "",
+  ownerName: "",
+  updateUserName: () => {},
+  updateRepoName: () => {},
+  updateOwnerName: () => {},
+});
 
 export default props => {
   const [userName, setUsername] = useState("");

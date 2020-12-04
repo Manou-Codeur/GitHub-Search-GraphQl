@@ -19,12 +19,14 @@ const Input = ({ field, handleSubmitWithClick }) => {
     }
   };
 
+  if (!field) return <h1>Wait...</h1>;
   return (
     <div
       className="input"
       style={field === "repo-name" ? { marginBottom: "1rem" } : null}
     >
       <input
+        data-testid="my-input"
         value={fieldContext[field]}
         onChange={
           fieldContext[`update${field[0].toUpperCase() + field.slice(1)}`]
@@ -32,11 +34,17 @@ const Input = ({ field, handleSubmitWithClick }) => {
         type="text"
         placeholder={generatePlaceholder(field)}
       />
+
       {field === "userName" && (
         <img
-          onClick={handleSubmitWithClick}
+          onClick={e => {
+            if (fieldContext.userName === "")
+              e.target.parentNode.style.borderBottomColor = "red";
+            else handleSubmitWithClick(e);
+          }}
           src={searchIcon}
           alt="search icon"
+          data-testid="search-icon"
         />
       )}
     </div>

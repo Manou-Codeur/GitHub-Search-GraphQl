@@ -7,12 +7,13 @@ import { InputFieldContext } from "../../contexts/inputField";
 import catGithub from "../../assets/img/Octocat.png";
 import "./search.scss";
 
-const Search = ({ history }) => {
-  const [fieldSelected, setFieldSelected] = useState("User");
+const Search = ({ history, selectedField = "User" }) => {
+  const [fieldSelected, setFieldSelected] = useState(selectedField);
   const fieldContext = useContext(InputFieldContext);
 
   const handleSubmit = e => {
     if (e.key === "Enter" || e.type === "click") {
+      console.log("called");
       if (fieldSelected === "User") {
         history.push(`/profile/@${fieldContext.userName.trim()}`);
         //init the username field in the context
