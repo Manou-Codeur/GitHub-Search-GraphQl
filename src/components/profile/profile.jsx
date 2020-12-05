@@ -9,7 +9,7 @@ import ReposWrapper from "./repos-wrapper/reposWrapper";
 import Spinner from "./../load-spinner/loadSpinner";
 
 import "./profile.scss";
-
+export { GET_USER_DATA } from "../../GraphQl/GraphQl-Queries";
 const Profile = ({
   match: {
     params: { username },
@@ -49,7 +49,7 @@ const Profile = ({
     }).then(res => setWaitRefetch(false));
   };
 
-  if (loading) return <Spinner />;
+  if (loading) return <h1>Loading...</h1>;
   if (error) {
     if (
       error.graphQLErrors.length > 0 &&
@@ -59,25 +59,25 @@ const Profile = ({
     } else return <h2>Failed to fetch!</h2>;
   }
 
-  const { user } = data;
+  // const { user } = data;
 
   return (
     <div className="profile">
       <User
         data={{
-          avatarUrl: user.avatarUrl,
-          login: user.login,
-          bio: user.bio,
+          avatarUrl: data.user.avatarUrl,
+          login: data.user.login,
+          bio: data.user.bio,
           followers: {
-            totalCount: user.followers.totalCount,
+            totalCount: data.user.followers.totalCount,
           },
         }}
       />
 
       <ReposWrapper
-        canFetchMore={user.repositories.pageInfo.hasNextPage}
+        canFetchMore={data.user.repositories.pageInfo.hasNextPage}
         fetchMoreData={fetchMoreData}
-        repos={user.repositories.edges}
+        repos={data.user.repositories.edges}
         navigateToRepository={navigateToRepository}
         waitRefetch={waitRefetch}
       />

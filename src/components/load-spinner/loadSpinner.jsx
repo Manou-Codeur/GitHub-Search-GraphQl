@@ -27,7 +27,7 @@ function FacebookCircularProgress(props) {
   const classes = useStylesFacebook();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} data-testid="my-spinner">
       <CircularProgress
         variant="determinate"
         className={classes.bottom}

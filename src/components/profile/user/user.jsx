@@ -14,7 +14,7 @@ const User = ({ data }) => {
       ></div>
 
       <div className="user__user-info">
-        <p>
+        <p data-testid="my-name">
           <strong>Name:</strong> {data.login}
         </p>
         <p>

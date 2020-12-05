@@ -1,4 +1,5 @@
 export const formatDate = input => {
+  if (!input) return "none";
   const months = [
     "January",
     "February",
