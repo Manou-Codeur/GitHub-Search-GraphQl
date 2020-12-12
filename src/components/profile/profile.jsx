@@ -49,7 +49,7 @@ const Profile = ({
     }).then(res => setWaitRefetch(false));
   };
 
-  if (loading) return <h1>Loading...</h1>;
+  if (loading) return <Spinner />;
   if (error) {
     if (
       error.graphQLErrors.length > 0 &&
@@ -59,28 +59,28 @@ const Profile = ({
     } else return <h2>Failed to fetch!</h2>;
   }
 
-  // const { user } = data;
+  const { user } = data;
 
   return (
     <div className="profile">
       <User
         data={{
-          avatarUrl: data.user.avatarUrl,
-          login: data.user.login,
-          bio: data.user.bio,
+          avatarUrl: user.avatarUrl,
+          login: user.login,
+          bio: user.bio,
           followers: {
-            totalCount: data.user.followers.totalCount,
+            totalCount: user.followers.totalCount,
           },
         }}
       />
 
-      <ReposWrapper
-        canFetchMore={data.user.repositories.pageInfo.hasNextPage}
+      {/* <ReposWrapper
+        canFetchMore={user.repositories.pageInfo.hasNextPage}
         fetchMoreData={fetchMoreData}
-        repos={data.user.repositories.edges}
+        repos={user.repositories.edges}
         navigateToRepository={navigateToRepository}
         waitRefetch={waitRefetch}
-      />
+      /> */}
     </div>
   );
 };
