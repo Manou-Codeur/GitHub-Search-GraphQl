@@ -20,12 +20,12 @@ export const data = {
           languages: {
             edges: {
               node: {
-                name: "first-repo",
+                name: "javascript",
               },
             },
           },
           id: 5555,
-          name: "my-travel",
+          name: "testing-repos",
           stargazers: {
             totalCount: 66565,
           },
@@ -36,7 +36,7 @@ export const data = {
         },
       },
       pageInfo: {
-        hasNextPage: false,
+        hasNextPage: true,
         endCursor: null,
       },
     },

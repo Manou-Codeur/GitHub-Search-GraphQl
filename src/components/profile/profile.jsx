@@ -74,13 +74,13 @@ const Profile = ({
         }}
       />
 
-      {/* <ReposWrapper
+      <ReposWrapper
         canFetchMore={user.repositories.pageInfo.hasNextPage}
         fetchMoreData={fetchMoreData}
         repos={user.repositories.edges}
         navigateToRepository={navigateToRepository}
         waitRefetch={waitRefetch}
-      /> */}
+      />
     </div>
   );
 };

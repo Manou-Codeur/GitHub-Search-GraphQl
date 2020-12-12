@@ -4,9 +4,9 @@ import "@testing-library/jest-dom/extend-expect";
 import { createMemoryHistory } from "history";
 import { MockedProvider } from "@apollo/client/testing";
 
-import Profile from "../profile";
-import { GET_USER_DATA } from "../../../GraphQl/GraphQl-Queries";
-import { data } from "../../../GraphQl/mock-queries";
+import Profile from "./profile";
+import { GET_USER_DATA } from "../../GraphQl/GraphQl-Queries";
+import { data } from "../../GraphQl/mock-queries";
 
 const match = {
   isExact: true,
@@ -38,7 +38,14 @@ test("Test the data state", async () => {
   );
 
   await act(async () => await new Promise(resolve => setTimeout(resolve, 0)));
-  expect(screen.getByText("djamel-tizi")).toBeInTheDocument();
+
+  expect(screen.getByTestId("my-name").textContent).toEqual(
+    "Name: djamel-tizi"
+  );
+  expect(screen.getByText("testing-repos")).toBeInTheDocument();
+  expect(screen.getByText("66565")).toBeInTheDocument();
+
+  screen.debug();
 });
 
 test("Test the error state", async () => {
