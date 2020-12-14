@@ -10,6 +10,7 @@ const Repository = ({ data, navigateToRepository }) => {
     <div
       className="repository"
       onClick={() => navigateToRepository(data.name, data.owner.login)}
+      data-testid="repos"
     >
       <div className="repository__left-part">
         <img src={bookIcon} alt="book icon" />

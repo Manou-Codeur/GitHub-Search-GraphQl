@@ -23,7 +23,7 @@ const User = ({ data }) => {
             ? data.bio
             : "This user hasn't written any biography!"}
         </p>
-        <p>
+        <p data-testid="followers">
           <strong>Followers:</strong> {data.followers.totalCount}
         </p>
       </div>
