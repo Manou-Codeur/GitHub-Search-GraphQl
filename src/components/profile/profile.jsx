@@ -9,7 +9,6 @@ import ReposWrapper from "./repos-wrapper/reposWrapper";
 import Spinner from "./../load-spinner/loadSpinner";
 
 import "./profile.scss";
-export { GET_USER_DATA } from "../../GraphQl/GraphQl-Queries";
 const Profile = ({
   match: {
     params: { username },
