@@ -5,8 +5,8 @@ import searchIcon from "../../../../assets/img/search.png";
 
 import { InputFieldContext } from "../../../../contexts/inputField";
 
-const Input = ({ field, handleSubmitWithClick }) => {
-  //in here rather than writing the input logic like this, i'd to use the state on the context
+const Input = React.forwardRef(({ field, handleSubmitWithClick }, ref) => {
+  //in here rather than writing the input logic like this, i'd use the state on the context
   const fieldContext = useContext(InputFieldContext);
 
   const generatePlaceholder = field => {
@@ -26,6 +26,8 @@ const Input = ({ field, handleSubmitWithClick }) => {
       style={field === "repo-name" ? { marginBottom: "1rem" } : null}
     >
       <input
+        ref={ref}
+        className="my-input"
         data-testid="my-input"
         value={fieldContext[field]}
         onChange={
@@ -49,6 +51,6 @@ const Input = ({ field, handleSubmitWithClick }) => {
       )}
     </div>
   );
-};
+});
 
 export default Input;

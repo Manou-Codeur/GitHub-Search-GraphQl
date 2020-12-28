@@ -3,9 +3,15 @@ import React from "react";
 import Input from "./input/input";
 
 const InputsWrapper = ({ fieldSelected, handleSubmitWithClick }) => {
+  const myRef = React.useRef();
+
   if (fieldSelected === "User") {
     return (
-      <Input field="userName" handleSubmitWithClick={handleSubmitWithClick} />
+      <Input
+        field="userName"
+        ref={myRef}
+        handleSubmitWithClick={handleSubmitWithClick}
+      />
     );
   } else {
     return (

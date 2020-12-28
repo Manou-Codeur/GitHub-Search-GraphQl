@@ -13,7 +13,6 @@ const Search = ({ history, selectedField = "User" }) => {
 
   const handleSubmit = e => {
     if (e.key === "Enter" || e.type === "click") {
-      console.log("called");
       if (fieldSelected === "User") {
         history.push(`/profile/@${fieldContext.userName.trim()}`);
         //init the username field in the context
