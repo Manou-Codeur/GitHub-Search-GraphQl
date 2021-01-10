@@ -4,6 +4,7 @@ import "./App.css";
 import { myLazy2 } from "./assets/helperFunctions";
 import ErrorBoundary from "./errorBoundary/errorBoundary";
 import MouseTracker from "./components/component";
+import plainReact from "./plainReact";
 
 // import Search from "./components/search/search";
 const Search = myLazy2(() => import("./components/search/search"));
@@ -26,6 +27,8 @@ function App() {
             component={Repository}
           />
           <Route path="/profile/:username" exact component={Profile} />
+          <Route path="/users" component={plainReact.Users} />
+          <Route path="/contributors" component={plainReact.Contributors} />
           <Route path="/test" exact component={MouseTracker} />
           <Route path="/notFound" component={Notfound} />
           <Redirect from="/" exact to="/search" />
