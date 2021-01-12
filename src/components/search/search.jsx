@@ -6,12 +6,13 @@ import InputsWrapper from "./inputs-wrapper/inputsWrapper";
 import catGithub from "../../assets/img/Octocat.png";
 import "./search.scss";
 
-const Search = ({ history, selectedField = "User" }) => {
-  let usernameInput = createRef();
-  let repoInput = createRef();
-  let ownerInput = createRef();
+const Search = ({ history }) => {
+  console.log("search--render");
+  const usernameInput = createRef();
+  const repoInput = createRef();
+  const ownerInput = createRef();
 
-  const [fieldSelected, setFieldSelected] = useState(selectedField);
+  const [fieldSelected, setFieldSelected] = useState("User");
 
   const handleSubmit = e => {
     if (e.key === "Enter" || e.type === "click") {
@@ -33,7 +34,7 @@ const Search = ({ history, selectedField = "User" }) => {
       </div>
 
       <div className="search__form-containner">
-        <Select toggleFeild={setFieldSelected} />
+        <Select toggleFeild={setFieldSelected} fieldSelected={fieldSelected} />
 
         <InputsWrapper
           fieldSelected={fieldSelected}

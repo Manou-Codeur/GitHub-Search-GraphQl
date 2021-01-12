@@ -4,7 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 
 import App from "./App";
-import InputProvider from "./contexts/inputField";
 import CustomApolloProvider from "./apollo-config";
 import FetchError from "./errorBoundaries/fetchErrors";
 
@@ -14,9 +13,7 @@ ReactDOM.render(
   <BrowserRouter>
     <FetchError>
       <CustomApolloProvider>
-        <InputProvider>
-          <App />
-        </InputProvider>
+        <App />
       </CustomApolloProvider>
     </FetchError>
   </BrowserRouter>,

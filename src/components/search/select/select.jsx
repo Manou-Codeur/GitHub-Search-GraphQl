@@ -28,9 +28,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Select = ({ toggleFeild }) => {
+const Select = ({ toggleFeild, fieldSelected }) => {
   const classes = useStyles();
-  const [field, setField] = useState("User");
+  const [field, setField] = useState(fieldSelected);
 
   const handleChange = ({ target }) => {
     setField(target.value);
