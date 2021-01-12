@@ -1,13 +1,10 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 
 import "./input.scss";
 import searchIcon from "../../../../assets/img/search.png";
 
-import { InputFieldContext } from "../../../../contexts/inputField";
-
 const Input = React.forwardRef(({ field, handleSubmitWithClick }, ref) => {
-  //in here rather than writing the input logic like this, i'd use the state on the context
-  const fieldContext = useContext(InputFieldContext);
+  const [inputValue, setInputValue] = useState("");
 
   const generatePlaceholder = field => {
     if (field === "repoName") {
@@ -29,10 +26,8 @@ const Input = React.forwardRef(({ field, handleSubmitWithClick }, ref) => {
         ref={ref}
         className="my-input"
         data-testid="my-input"
-        value={fieldContext[field]}
-        onChange={
-          fieldContext[`update${field[0].toUpperCase() + field.slice(1)}`]
-        }
+        value={inputValue}
+        onChange={({ target }) => setInputValue(target.value)}
         type="text"
         placeholder={generatePlaceholder(field)}
       />
@@ -40,7 +35,7 @@ const Input = React.forwardRef(({ field, handleSubmitWithClick }, ref) => {
       {field === "userName" && (
         <img
           onClick={e => {
-            if (fieldContext.userName === "")
+            if (inputValue === "")
               e.target.parentNode.style.borderBottomColor = "red";
             else handleSubmitWithClick(e);
           }}
